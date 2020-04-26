@@ -30,7 +30,6 @@ request_gpus = {req_ngpus}
 Arguments = \"-c 'exec {cmd} --ip=0.0.0.0'\"
 Remote_Initialdir = {homedir}
 ShouldTransferFiles = False
-Environment = %s
 PeriodicRemove = (JobStatus == 1 && NumJobStarts > 1) || ( CurrentTime - JobCurrentStartDate > {req_runtime} * 60 )
 +SingularityImage = "{req_singularityimage}"
 Queue

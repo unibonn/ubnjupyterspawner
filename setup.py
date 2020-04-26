@@ -25,7 +25,8 @@ with open(pjoin(here, 'version.py')) as f:
 
 setup_args = dict(
     name                = 'ndjupyterspawner',
-    packages            = ['ndjupyterspawner'],
+    packages            = ['ndspawner'],
+    include_package_data = True,
     version             = version_ns['__version__'],
     description         = """NDspawner: A spawner modification of WrapSpawner for Jupyterhub based on SDCC version.""",
     long_description    = "",

@@ -36,4 +36,4 @@ PeriodicRemove = (JobStatus == 1 && NumJobStarts > 1) || ( CurrentTime - JobCurr
 Queue
 '''
 ```
-![NDSpawner screenshot](ndspawner.png)
+![NDSpawner screenshot](images/ndspawner.png)

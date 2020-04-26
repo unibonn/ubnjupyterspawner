@@ -20,8 +20,8 @@ class ParamForm(HasTraits):
 
     source = Unicode('')
 
-    def __init__(self, spawner):
-        self.spawner = spawner
+    def __init__(self):
+        pass
 
     def generate(self):
         path = os.path.join(os.path.dirname(__file__), self.source)

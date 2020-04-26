@@ -1,11 +1,12 @@
 from wrapspawner import WrapSpawner
 from traitlets import Unicode, Type
-
+from jinja2 import Template
+from tornado.log import app_log
 import os
 
 from traitlets.config.configurable import HasTraits
 
-__all__ = ['ParamForm', 'FormMixin', 'NDSpawner']
+__all__ = ['ParamForm', 'FormMixin', 'NDSpawner', 'NDForm']
 
 
 class ParamForm(HasTraits):
@@ -31,6 +32,20 @@ class ParamForm(HasTraits):
     def parse_options(self, formdata):
         return {k: v[0] for k, v in formdata.items()}
 
+class NDForm(ParamForm):
+
+    source = 'static/ndform.html'
+
+    def parse_options(self, formdata):
+        data = super().parse_options(formdata)
+        intsettings = {'req_memory', 'req_nprocs', 'req_ngpus'}
+        data = {k: int(v) if v in intsettings else v for k, v in data.items()}
+        data['req_runtime'] = '{runtime}:00'.form(runtime=data['req_runtime'])
+        return data
+
+    def generate(self):
+        app_log.info("Generating form from: %s", self)
+        return Template(super().generate()).render()
 
 class FormMixin(HasTraits):
     """ Class to mix into a custom spawner that injects the form_cls attribute.
@@ -41,7 +56,7 @@ class FormMixin(HasTraits):
         to the spawner.
     """
 
-    form_cls = Type(ParamForm, help="Type of form class to use").tag(config=True)
+    form_cls = Type(NDForm, help="Type of form class to use").tag(config=True)
 
     @staticmethod
     def options_form(self):

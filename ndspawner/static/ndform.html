@@ -20,6 +20,13 @@ Please, choose the parameters to run on a GPU slot
         <label for="runtime">Runtime (min) (max: 1440)</label>
         <input type="number" class="form-control" max=1440 min=30 step=30 value="120" id="runtime" name="req_runtime"/>
     </div>
+    <div class="col-sm-2">
+        <label for="Container">Container</label>
+        <select class="form-control" id="container" name="req_singularityimage"/>
+          <option value="/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-pytorch-gpu:latest">Pytorch</option>
+          <option value="/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-tensorflow-keras-gpu:latest">TensorFlow/Keras</option>
+        <select/>
+    </div>
 </fieldset>
 <hr>
 </div>

@@ -3,7 +3,7 @@ from traitlets import Unicode, Type
 from jinja2 import Template
 from tornado.log import app_log
 import os
-
+import batchspawner
 from traitlets.config.configurable import HasTraits
 
 __all__ = ['ParamForm', 'FormMixin', 'NDSpawner', 'NDForm']
@@ -40,7 +40,8 @@ class NDForm(ParamForm):
         data = super().parse_options(formdata)
         intsettings = {'req_memory', 'req_nprocs', 'req_ngpus'}
         data = {k: int(v) if v in intsettings else v for k, v in data.items()}
-        data['req_runtime'] = '{runtime}:00'.form(runtime=data['req_runtime'])
+        data['req_runtime'] = data['req_runtime']
+        app_log.info("form data = {0}".format(data))
         return data
 
     def generate(self):
@@ -60,10 +61,10 @@ class FormMixin(HasTraits):
 
     @staticmethod
     def options_form(self):
-        return self.form_cls(self).generate()
+        return self.form_cls().generate()
 
     def options_from_form(self, formdata):
-        return self.form_cls(self).parse_options(formdata)
+        return self.form_cls().parse_options(formdata)
 
 
 class NDSpawner(FormMixin, WrapSpawner):
@@ -79,7 +80,7 @@ class NDSpawner(FormMixin, WrapSpawner):
         if hasattr(self.child_class, 'form_cls'):
             self.log.debug("WrapForm: Set child config from child class's form_cls: %s",
                            self.child_class.form_cls)
-            self.child_config = self.child_class.form_cls(self).parse_options(formdata)
+            self.child_config = self.child_class.form_cls().parse_options(formdata)
             self.child_class.user_options = self.child_config
         else:
             self.log.debug("No child config found")
@@ -88,4 +89,6 @@ class NDSpawner(FormMixin, WrapSpawner):
         return {}
 
     def set_class(self, data):
-        raise NotImplementedError('Must implement in subclass')
+        x = batchspawner.CondorSpawner
+        x.form_cls = self.form_cls
+        return x

@@ -1,19 +1,13 @@
-# sdcc_jupyter_spawners
+# NDJupyterSpawner
 
-Jupyter spawners for configuration at SDCC
-
-From root directory of this repo (where setup.py is), run pip install -e .
-
-If you don't actually need an editable version, you can simply run:
+ND Jupyter spawner
 
 ```
-pip install git+https://github.com/jupyterhub/sdcc_jupyter
+pip install git+https://github.com/NDCMS/ndjupyterspawner
 ```
 
-Add lines in jupyterhub_config.py for the spawner you intend to use, e.g.
+Add lines in jupyterhub_config.py for the spawner, i.e.:
 
 ```
-   c.JupyterHub.spawner_class = 'wrapspawner.WrapFormSpawner'
+   c.JupyterHub.spawner_class = 'wrapspawner.NDSpawner'
 ```
-
-Depending on the spawner, additional configuration will likely be needed.

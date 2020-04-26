@@ -1,0 +1,25 @@
+<hr/>
+<p class="lead">
+Please, choose the parameters to run on a GPU slot
+</p>
+<div class="form-group row">
+<fieldset id="ndform">
+    <div class="col-sm-2">
+        <label for="cpus">Num GPUs (max: 4)</label>
+        <input type="number" class="form-control" max=4 min=1 value="1" id="gpus" name="req_ngpus"/>
+    </div>
+    <div class="col-sm-2">
+        <label for="cpus">Num CPUs (max: 24)</label>
+        <input type="number" class="form-control" max=32 min=1 value="1" id="cpus" name="req_nprocs"/>
+    </div>
+    <div class="col-sm-2">
+        <label for="mem">Memory (Gb) (max: 180)</label>
+        <input type="number" class="form-control" max=180 min=1 value="1" id="mem" name="req_memory"/>
+    </div>
+    <div class="col-sm-2">
+        <label for="runtime">Runtime (min) (max: 1440)</label>
+        <input type="number" class="form-control" max=1440 min=30 step=30 value="120" id="runtime" name="req_runtime"/>
+    </div>
+</fieldset>
+<hr>
+</div>

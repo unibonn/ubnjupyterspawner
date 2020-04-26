@@ -1,7 +1,7 @@
 from jinja2 import Template
 from tornado.log import app_log
 
-from .formspawners import ParamForm
+from .ndspawner import ParamForm
 
 
 class NDForm(ParamForm):

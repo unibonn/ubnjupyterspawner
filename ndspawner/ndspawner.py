@@ -5,7 +5,7 @@ import os
 
 from traitlets.config.configurable import HasTraits
 
-__all__ = ['ParamForm', 'FormMixin', 'WrapFormSpawner']
+__all__ = ['ParamForm', 'FormMixin', 'NDSpawner']
 
 
 class ParamForm(HasTraits):

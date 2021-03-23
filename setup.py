@@ -24,15 +24,15 @@ with open(pjoin(here, 'version.py')) as f:
     exec(f.read(), {}, version_ns)
 
 setup_args = dict(
-    name                = 'ndjupyterspawner',
-    packages            = ['ndspawner'],
+    name                = 'ubnjupyterspawner',
+    packages            = ['ubnspawner'],
     include_package_data = True,
     version             = version_ns['__version__'],
-    description         = """NDspawner: A spawner modification of WrapSpawner for Jupyterhub based on SDCC version.""",
+    description         = """UBNspawner: A spawner modification of WrapSpawner for JupyterHub based on SDCC/ND version.""",
     long_description    = "",
-    author              = "Kenyi Hurtado",
-    author_email        = "khurtado@nd.edu",
-    url                 = "http://www.crc.nd.edu",
+    author              = "Oliver Freyermuth",
+    author_email        = "freyermuth@physik.uni-bonn.de",
+    url                 = "https://github.com/unibonn/",
     license             = "BSD",
     platforms           = "Linux, Mac OS X",
     keywords            = ['Interactive', 'Interpreter', 'Shell', 'Web'],
@@ -54,7 +54,7 @@ dependency_links = [
 
 if 'setuptools' in sys.modules:
     setup_args['install_requires'] = install_requires
-    setup_args['dependency_links'] = dependency_links 
+    setup_args['dependency_links'] = dependency_links
 
 def main():
     setup(**setup_args)

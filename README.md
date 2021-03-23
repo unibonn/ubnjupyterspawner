@@ -1,15 +1,15 @@
-# NDJupyterSpawner
+# UBNJupyterSpawner
 
-ND Jupyter spawner
+UBN Jupyter spawner
 
 ```
-pip install git+https://github.com/NDCMS/ndjupyterspawner
+pip install git+https://github.com/unibonn/ubnjupyterspawner
 ```
 
 Add lines in jupyterhub_config.py for the spawner, i.e.:
 
 ```
-   c.JupyterHub.spawner_class = 'ndspawner.NDSpawner'
+   c.JupyterHub.spawner_class = 'ubnspawner.UBNSpawner'
 ```
 The static form will set the following variables:
 
@@ -35,4 +35,4 @@ PeriodicRemove = (JobStatus == 1 && NumJobStarts > 1) || ( CurrentTime - JobCurr
 Queue
 '''
 ```
-![NDSpawner screenshot](images/ndspawner.png)
+<!-- ![NDSpawner screenshot](images/ndspawner.png) -->

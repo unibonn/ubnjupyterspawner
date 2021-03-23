@@ -1,36 +1,32 @@
-<hr/>
+<hr />
 <p class="lead">
-Please, choose the parameters to run on a GPU slot
+	Please, choose the parameters for your notebook job.
 </p>
 <div class="form-group row">
-<fieldset id="ubnform">
+	<fieldset id="ubnform">
     <div class="col-sm-2">
-        <label for="cpus">Num GPUs (max: 4)</label>
-        <input type="number" class="form-control" max=4 min=1 value="1" id="gpus" name="req_ngpus"/>
+      <label for="cpus">Num GPUs (max: 1)</label>
+      <input type="number" class="form-control" max="1" min="1" value="1" id="gpus" name="req_ngpus"/>
     </div>
     <div class="col-sm-2">
-        <label for="cpus">Num CPUs (max: 24)</label>
-        <input type="number" class="form-control" max=24 min=1 value="1" id="cpus" name="req_nprocs"/>
+      <label for="cpus">Num CPUs (max: 8)</label>
+      <input type="number" class="form-control" max="8" min="1" value="1" id="cpus" name="req_nprocs"/>
     </div>
     <div class="col-sm-2">
-        <label for="mem">Memory (Gb) (max: 180)</label>
-        <input type="number" class="form-control" max=180 min=1 value="1" id="mem" name="req_memory"/>
+      <label for="mem">Memory (GB) (max: 32)</label>
+      <input type="number" class="form-control" max="32" min="1" value="1" id="mem" name="req_memory"/>
     </div>
     <div class="col-sm-2">
-        <label for="runtime">Runtime (min) (max: 1440)</label>
-        <input type="number" class="form-control" max=1440 min=30 step=30 value="120" id="runtime" name="req_runtime"/>
+      <label for="maxruntimehours">Maximum runtime (hours) (max: 12)</label>
+      <input type="number" class="form-control" max="12" min="1" step="1" value="3" id="maxruntimehours" name="req_maxruntimehours"/>
     </div>
     <div class="col-sm-2">
-        <label for="Container">Container</label>
-        <select class="form-control" id="container" name="req_singularityimage"/>
-          <option value="/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-pytorch-gpu:latest">Pytorch</option>
-          <option value="/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-tensorflow-keras-gpu:latest">TensorFlow/Keras</option>
-          <option value="/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-jax-gpu:ubuntu">JAX</option>
-          <option value="/cvmfs/singularity.opensciencegrid.org/notredamedulac/el7-deepshere-gpu:latest">DeepSphere</option>
-          <option value="/afs/crc.nd.edu/x86_64_linux/s/singularity/images/amber18.sif">Amber</option>
-          <option value="/afs/crc.nd.edu/x86_64_linux/s/singularity/images/pytorch-1.7.sif">PyTorch 1.7</option>
-        <select/>
-    </div>
-</fieldset>
-<hr>
+      <label for="containeros">Container</label>
+      <select class="form-control" id="containeros" name="req_containeros">
+				<option value="Debian10">Debian 10</option>
+				<option value="Ubuntu1804">Ubuntu 18.04</option>
+			</select>
+		</div>
+	</fieldset>
+	<hr />
 </div>

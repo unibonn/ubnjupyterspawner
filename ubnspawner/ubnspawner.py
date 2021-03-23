@@ -41,8 +41,8 @@ class UBNForm(ParamForm):
         data = super().parse_options(formdata)
         intsettings = {'req_memory', 'req_nprocs', 'req_ngpus'}
         data = {k: int(v) if v in intsettings else v for k, v in data.items()}
-        data['req_runtime'] = data['req_runtime']
-        app_log.info("form data = {0}".format(data))
+        # data['req_runtime'] = data['req_runtime']
+        app_log.info("form data = {}".format(data))
         return data
 
     def generate(self):

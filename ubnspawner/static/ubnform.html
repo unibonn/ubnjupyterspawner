@@ -21,6 +21,15 @@
       <input type="number" class="form-control" max="1" min="0" value="0" id="gpus" name="req_ngpus"/>
     </div>
     <div class="row-sm-2">
+      <label for="cephfsio">Necessary CephFS IO bandwidth (see <a href="https://confluence.team.uni-bonn.de/x/qQSl">documentation</a>)</label>
+      <select class="form-control" id="cephfsio" name="req_cephfsio">
+        <option value="none">none</option>
+        <option value="low" selected>low</option>
+        <option value="medium">medium</option>
+        <option value="high">high</option>
+      </select>
+    </div>
+    <div class="row-sm-2">
       <label for="containeros">Container</label>
       <select class="form-control" id="containeros" name="req_containeros">
         <option value="Debian10" selected>Debian 10</option>

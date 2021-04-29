@@ -5,7 +5,7 @@ version_info = (
     2021,
     4,
     30,
-    1
+    2
 )
 __version__ = '.'.join(map(str, version_info[:4]))
 
